@@ -1,33 +1,29 @@
-class Form {
-  constructor() {
-    this.input = createInput("").attribute("placeholder", "Enter your name");
-    this.playButton = createButton("Play");
-    this.titleImg = createImg("./assets/title.png", "game title");
-    this.greeting = createElement("h2");
-  }
+class Form{
+constructor(){
 
-  setElementsPosition() {
-    this.titleImg.position(120,50);
-    this.input.position(width / 2 - 110, height / 2 - 80);
-    this.playButton.position(width / 2 - 90, height / 2 - 20);
-    this.greeting.position(width / 2 - 300, height / 2 - 100);
-  }
+}
+display (){
+  var title=createElement('h2')
+  title.html('car racing game');
+  title.position(130,0);
 
-  setElementsStyle() {
-    this.titleImg.class("gameTitle");
-    this.input.class("customInput");
-    this.playButton.class("customButton");
-    this.greeting.class("greeting");
-  }
+  var input=createInput('NAME')
+  input.position(130,160);
+  var greeting=createElement('h3')
+  var button=createButton('PLAY')
+  button.position(250,200);
+  button.mousePressed(function(){
+    input.hide();
+    button.hide();
+    var name=input.value();
+    playerCount+=1;
+    player.update(name)
+    player.updateCount(playerCount)
+    greeting.html('HELLO '+name)
+    greeting.position(250,160);
 
-  hide() {
-    this.greeting.hide();
-    this.playButton.hide();
-    this.input.hide();
-  }
+  })
 
-  display() {
-    this.setElementsPosition();
-    this.setElementsStyle();
-  }
+
+}
 }
